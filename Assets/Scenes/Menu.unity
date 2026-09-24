@@ -12536,6 +12536,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 6219235218734941593, guid: a2b41497ade16114e9d0c8944700e131, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219235218734941593, guid: a2b41497ade16114e9d0c8944700e131, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7489620540549699548, guid: a2b41497ade16114e9d0c8944700e131, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
