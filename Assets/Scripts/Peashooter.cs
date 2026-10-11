@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+
 public class Peashooter : Character
 {
     [SerializeField]
@@ -51,7 +52,7 @@ public class Peashooter : Character
     }
     private void Attack()
     {
-        SoundManager.instance.Play(shooterPlantData.attackSound);
+        //SoundManager.instance.Play(shooterPlantData.shootTime);
         canAttack = false;
         StartCoroutine(AttackRoutine());
     }
@@ -82,5 +83,3 @@ public class Peashooter : Character
         base.Die();
     }
 }
- 
- 

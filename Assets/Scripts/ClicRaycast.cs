@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
- 
+
 public class ClickRaycast : MonoBehaviour
 {
     private float raycastDistance = 1000f;
@@ -39,5 +39,3 @@ public class ClickRaycast : MonoBehaviour
         }
     }
 }
- 
- 

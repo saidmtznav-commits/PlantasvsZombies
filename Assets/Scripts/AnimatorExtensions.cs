@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
- 
+
 public static class AnimatorExtensions
 {
     public static IEnumerator WaitForCurrentAnimation(this Animator animator)
@@ -14,5 +14,5 @@ public static class AnimatorExtensions
         }
     }
 }
- 
+
 
