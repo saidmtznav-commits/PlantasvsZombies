@@ -20,3 +20,4 @@ MonoBehaviour:
   sunOffsetY: 2
   sunInterval: 5
   sunAmount: 1
+  sunParticlesPrefab: {fileID: 1369737204877562232, guid: 28928dfc6ae936c44ad354c3a3ce7ed3, type: 3}

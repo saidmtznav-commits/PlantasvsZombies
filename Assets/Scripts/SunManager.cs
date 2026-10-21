@@ -1,5 +1,5 @@
 using UnityEngine;
-
+ 
 public class SunManager : MonoBehaviour
 {
     [SerializeField]
@@ -23,4 +23,14 @@ public class SunManager : MonoBehaviour
         currentSun += amount;
         UpdateSunText();
     }
+    public bool HasEnoughSun(int amount)
+    {
+        return currentSun >= amount;
+    }
+    public void SpendSun(int amount)
+    {
+        currentSun -= amount;
+        UpdateSunText();
+    }
 }
+ 
