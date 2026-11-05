@@ -3384,21 +3384,9 @@ MonoBehaviour:
   priceText: {fileID: 1586861797}
   plantPrefab: {fileID: 6486707546268557493, guid: e837137a21f7e8446a2bc6ece09e1e9f, type: 3}
   sunManager: {fileID: 1712375748}
-  onPlantBounght:
+  onPlantBought:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1531417892}
-        m_TargetAssemblyTypeName: PlantCreator, Assembly-CSharp
-        m_MethodName: SetObjectToPlace
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &752422778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5198,13 +5186,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214353032}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27684468, y: -0, z: -0, w: 0.9609147}
-  m_LocalPosition: {x: 2.67, y: 10.01, z: -10}
+  m_LocalRotation: {x: 0.24194795, y: -0, z: -0, w: 0.97028923}
+  m_LocalPosition: {x: 2.67, y: 9.3, z: -11.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 32.144, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.003, y: 0, z: 0}
 --- !u!114 &1214353036
 MonoBehaviour:
   m_ObjectHideFlags: 0

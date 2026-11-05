@@ -1,5 +1,5 @@
 using UnityEngine;
-
+ 
 public class LaneManager : MonoBehaviour
 {
     [SerializeField]
@@ -7,5 +7,9 @@ public class LaneManager : MonoBehaviour
     public Lane GetRandomLane()
     {
         return lanes[Random.Range(0, lanes.Length)];
+    }
+    public Lane GetLane(int index)
+    {
+        return lanes[index];
     }
 }
