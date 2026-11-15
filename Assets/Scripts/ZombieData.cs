@@ -1,5 +1,5 @@
 using UnityEngine;
- 
+
 [CreateAssetMenu(fileName = "ZombieData", menuName = "Scriptable Objects/ZombieData")]
 public class ZombieData : ScriptableObject
 {
@@ -16,3 +16,4 @@ public class ZombieData : ScriptableObject
     public string appearSound;
     public string hitSound;
 }
+

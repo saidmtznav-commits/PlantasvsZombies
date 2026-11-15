@@ -1,5 +1,5 @@
 using UnityEngine;
- 
+
 public class SunManager : MonoBehaviour
 {
     [SerializeField]
@@ -33,4 +33,3 @@ public class SunManager : MonoBehaviour
         UpdateSunText();
     }
 }
- 

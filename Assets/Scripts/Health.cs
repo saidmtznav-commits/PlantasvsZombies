@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
- 
+
 public class Health : MonoBehaviour
 {
     [SerializeField]
@@ -35,6 +35,7 @@ public class Health : MonoBehaviour
             currentHealth = 0;
             onDeath?.Invoke();
         }
-    UpdateHealthSlider();
+        UpdateHealthSlider();
     }
 }
+

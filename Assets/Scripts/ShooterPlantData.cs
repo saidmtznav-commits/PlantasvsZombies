@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ShooterPlant", menuName = "Scriptable Objects/ShooterPlant")]
+[CreateAssetMenu(fileName = "ShooterPlantData", menuName = "Scriptable Objects/ShooterPlantData")]
 public class ShooterPlantData : PlantData
 {
     public float damage;
@@ -9,5 +9,4 @@ public class ShooterPlantData : PlantData
     public GameObject bulletPrefab;
     public float shootTime;
     public float fireRate;
-
 }

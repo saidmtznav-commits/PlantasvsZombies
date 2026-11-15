@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
- 
 public class Sun : MonoBehaviour
 {
     [SerializeField]
@@ -22,7 +21,7 @@ public class Sun : MonoBehaviour
     private void OnEnable()
     {
         assetCollider.enabled = true;
-        animator.Play("Appear", 0, 0f);
+        animator.Play("Appear", 0, 0);
         StartCoroutine(AutoDeactivate());
     }
     public void Collect()
@@ -33,11 +32,9 @@ public class Sun : MonoBehaviour
         PoolManager.Instance.GetObject(sunParticles, transform.position);
         gameObject.SetActive(false);
     }
- 
     private IEnumerator AutoDeactivate()
     {
         yield return new WaitForSeconds(duration);
         gameObject.SetActive(false);
     }
 }
- 

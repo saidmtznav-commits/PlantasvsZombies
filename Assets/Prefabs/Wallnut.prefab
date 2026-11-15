@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6229391406498501275}
   - component: {fileID: 3140111775457616003}
   - component: {fileID: 2045571504724836207}
+  - component: {fileID: 7702944787097798756}
   m_Layer: 3
   m_Name: Wallnut
   m_TagString: Plant
@@ -55,8 +56,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.81334186, y: 1, z: 0.915997}
-  m_Center: {x: 0.022250386, y: 3.7248526e-10, z: 0.01405099}
+  m_Size: {x: 2.2776527, y: 2.2791367, z: 0.915997}
+  m_Center: {x: 0.18595886, y: 0.6395683, z: 0.01405099}
 --- !u!114 &3140111775457616003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,8 +102,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallNut
   characterAnimator: {fileID: 6452289988852092986}
-  initialRotationY: 0
-  maxHealth: 100
+  initialRotationY: 180
+  blinkDuration: 3
+  price: 75
+  maxHealth: 200
+--- !u!114 &7702944787097798756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783415119391711845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d244d59cbdfb0e54fa9cb029947653d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Blink
+  blinkInterval: 0.2
 --- !u!1001 &6099200682799145481
 PrefabInstance:
   m_ObjectHideFlags: 0

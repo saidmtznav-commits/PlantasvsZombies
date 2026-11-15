@@ -1,20 +1,21 @@
 using UnityEngine;
 using System.Collections;
+
 public class SunSpawner : MonoBehaviour
 {
-[SerializeField]
-private LaneManager laneManager;
-[SerializeField]
-private float spawnInterval;
-[SerializeField]
-private float offsetY;
-[SerializeField]
-private GameObject sunPrefab;
-private bool isActive;
-public void Activate(bool active)
+    [SerializeField]
+    private LaneManager laneManager;
+    [SerializeField]
+    private float spawnInterval;
+    [SerializeField]
+    private float offsetY;
+    [SerializeField]
+    private GameObject sunPrefab;
+    private bool isActive;
+    public void Activate(bool active)
     {
         isActive = active;
-        if(isActive)
+        if (isActive)
         {
             StartCoroutine(SpawnSuns());
         }

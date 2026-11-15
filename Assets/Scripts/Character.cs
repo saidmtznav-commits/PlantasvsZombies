@@ -1,103 +1,48 @@
 using UnityEngine;
-using System;
 using System.Collections;
- 
-public class Zombie : Character
+
+[RequireComponent(typeof(Blink))]
+[RequireComponent(typeof(Health))]
+public class Character : MonoBehaviour
 {
+    protected Health health;
+    protected Collider characterCollider;
+    private Blink blink;
     [SerializeField]
-    private ZombieData zombieData;
-    private DetectTarget detectTarget;
-    private Health currentTarget;
-    public event Action<Zombie> onDie;
-    private bool canAttack;
-    protected override void Awake()
+    protected Animator characterAnimator;
+    [SerializeField]
+    protected float initialRotationY = 0f;
+    [SerializeField]
+    private float blinkDuration = 3f;
+    protected virtual void Awake()
     {
-        base.Awake();
-        health.SetMaxHealth(zombieData.maxHealth);
-        detectTarget = GetComponent<DetectTarget>();
-        detectTarget.SetRange(zombieData.attackRange);
+        health = GetComponent<Health>();
+        characterCollider = GetComponent<Collider>();
+        blink = GetComponent<Blink>();
     }
-    public override void Die()
+    protected virtual void OnEnable()
     {
-        ActivateTargetDetection(false);
-        SoundManager.instance.Play(zombieData.deathSound);
-        PoolManager.Instance.GetObject(zombieData.deathParticles, transform.position);
-        onDie?.Invoke(this);
-        base.Die();
-    }
-    protected override void OnEnable()
-    {
-        SoundManager.instance.Play(zombieData.appearSound);
-        currentTarget = null;
-        base.OnEnable();
+        transform.rotation = Quaternion.Euler(0f, initialRotationY, 0f);
+        characterCollider.enabled = false;
         health.Initialize();
     }
-    public override void Initialize()
+    public virtual void Initialize()
     {
-        base.Initialize();
-        canAttack = true;
-        ActivateTargetDetection(true);
+        characterCollider.enabled = true;
     }
-    private void ActivateTargetDetection(bool isActive)
+    public virtual void Die()
     {
-        detectTarget.SetActive(isActive);
-        if (isActive)
-        {
-            detectTarget.OnTargetDetected += OnTargetDetected;
-        }
-        else
-        {
-            detectTarget.OnTargetDetected -= OnTargetDetected;
-        }
+        StopAllCoroutines();
+        characterCollider.enabled = false;
+        StartCoroutine(DieCoroutine());
     }
-    private void Update()
+    private IEnumerator DieCoroutine()
     {
-        if (health.IsDead) return;
-        if (currentTarget == null)
-        {
-            Move();
-        }
-        else
-        {
-            Attack();
-        }
-    }
-    private void Attack()
-    {
-        if(!canAttack) return;
-        StartCoroutine(PerformAttack());
-    }
-    private IEnumerator PerformAttack()
-    {
-        canAttack = false;
-        SoundManager.instance.Play(zombieData.attackSound);
-        characterAnimator.Play("Attack", 0, 0f);
-        yield return new WaitForSeconds(zombieData.attackCooldown);
-        currentTarget.TakeDamage(zombieData.damage);
-        SoundManager.instance.Play(zombieData.hitSound);
-        PoolManager.Instance.GetObject(zombieData.attackParticles,currentTarget.transform.position);
-        if (currentTarget.IsDead) currentTarget = null;
-        yield return new WaitForSeconds(zombieData.attackCooldown);
-        canAttack = true;
-    }
-    private void Move()
-    {
-        transform.Translate(Vector3.forward * zombieData.moveSpeed * Time.deltaTime);
-        characterAnimator.Play("Walk");
-    }
-    private void OnTargetDetected(Health target)
-    {
-        if(target.IsDead || currentTarget == target) return;
-        if(currentTarget != null)
-        {
-            float distance = Vector3.Distance(transform.position, target.transform.position);
-            float newDistance = Vector3.Distance(transform.position, currentTarget.transform.position);
-            if (newDistance > distance)
-            {
-                currentTarget = target;
-                return;
-            }
-        }
-        currentTarget = target;
+        characterAnimator.Play("Die", 0, 0f);
+        yield return characterAnimator.WaitForCurrentAnimation();
+        blink.StartBlink(blinkDuration);
+        yield return new WaitForSeconds(blinkDuration);
+        gameObject.SetActive(false);
     }
 }
+

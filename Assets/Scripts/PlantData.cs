@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Plants", menuName = "Scriptable Objects/Plants")]
+[CreateAssetMenu(fileName = "PlantData", menuName = "Scriptable Objects/PlantData")]
 public class PlantData : ScriptableObject
 {
     public string appearSound;
@@ -8,3 +8,4 @@ public class PlantData : ScriptableObject
     public string deathSound;
     public float maxHealth;
 }
+

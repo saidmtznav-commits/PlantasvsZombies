@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
- 
+
 public class Flower : Plant
 {
     [SerializeField]
     private FlowerData flowerData;
     [SerializeField]
-    private FlowerZoneDetector zoneDetector;    
+    private FlowerZoneDetector zoneDetector;
     private List<Transform> zones = new List<Transform>();
     protected override void Awake()
     {
@@ -16,11 +16,11 @@ public class Flower : Plant
         zoneDetector.Flower = this;
     }
     protected override void OnEnable()
-    {      
+    {
         zoneDetector.DeactivateDetector();
         zones.Clear();
         base.OnEnable();
-        //SoundManager.instance.Play(flowerData.appearSound);
+        SoundManager.instance.Play(flowerData.appearSound);
     }
     public override void Initialize()
     {
@@ -30,7 +30,7 @@ public class Flower : Plant
     }
     private IEnumerator GenerateSun()
     {
-       while (!health.IsDead)
+        while (!health.IsDead)
         {
             yield return new WaitForSeconds(flowerData.sunInterval);
             if (zones.Count > 0)
@@ -43,7 +43,7 @@ public class Flower : Plant
                 }
                 SoundManager.instance.Play(flowerData.attackSound);
                 characterAnimator.Play("Attack", 0, 0f);
-                PoolManager.Instance.GetObject(flowerData.sunParticlesPrefab,
+                PoolManager.Instance.GetObject(flowerData.sunParticlePrefab,
                     transform.position);
             }
         }

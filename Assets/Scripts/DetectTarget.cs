@@ -1,5 +1,5 @@
 using UnityEngine;
- 
+
 public class DetectTarget : MonoBehaviour
 {
     [SerializeField]
@@ -22,7 +22,7 @@ public class DetectTarget : MonoBehaviour
     private void Update()
     {
         if (!isActive) return;
- 
+
         if (Physics.Raycast(transform.position + Vector3.up * rayHeighOffset, transform.forward, out RaycastHit hit, range, targetLayer))
         {
             if (hit.collider.CompareTag(targetTag))
@@ -30,7 +30,7 @@ public class DetectTarget : MonoBehaviour
                 OnTargetDetected?.Invoke(hit.collider.GetComponent<Health>());
             }
         }
- 
+
     }
     private void OnDrawGizmos()
     {

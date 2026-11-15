@@ -1,13 +1,11 @@
 using UnityEngine;
- 
+
 public class Zone : MonoBehaviour
 {
-private bool isOccuped = false;
-public bool IsOccupied
+    private bool isOccupied = false;
+    public bool IsOccupied
     {
-            get {return isOccuped;}
-            set {isOccuped = value;}
+        get { return isOccupied; }
+        set { isOccupied = value; }
     }
 }
- 
- 

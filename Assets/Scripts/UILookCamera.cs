@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UILoopCamera : MonoBehaviour
+public class UILookCamera : MonoBehaviour
 {
     private void LateUpdate()
     {

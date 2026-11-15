@@ -1,6 +1,6 @@
 using UnityEngine;
- 
-public class WallNut : Plant   
+
+public class Wallnut : Plant
 {
     [SerializeField]
     private float maxHealth;
@@ -15,4 +15,3 @@ public class WallNut : Plant
         health.Initialize();
     }
 }
- 

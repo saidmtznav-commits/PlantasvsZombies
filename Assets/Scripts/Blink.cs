@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
- 
+
 public class Blink : MonoBehaviour
 {
     private List<Renderer> renderers = new List<Renderer>();
@@ -36,4 +36,3 @@ public class Blink : MonoBehaviour
         EnableRenderers(true);
     }
 }
- 

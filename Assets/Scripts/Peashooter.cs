@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+
 public class Peashooter : Plant
 {
     [SerializeField]
@@ -16,11 +17,11 @@ public class Peashooter : Plant
         detectTarget = GetComponent<DetectTarget>();
         detectTarget.SetRange(shooterPlantData.range);
     }
-   protected override void OnEnable()
+    protected override void OnEnable()
     {
         currentTarget = null;
         base.OnEnable();
-        //SoundManager.instance.Play(shooterPlantData.appearSound);
+        SoundManager.instance.Play(shooterPlantData.appearSound);
         health.Initialize();
     }
     public override void Initialize()
@@ -87,3 +88,4 @@ public class Peashooter : Plant
         base.Die();
     }
 }
+

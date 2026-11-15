@@ -10,6 +10,7 @@ TagManager:
   - zone
   - Zone
   - Floor
+  - House
   layers:
   - Default
   - TransparentFX

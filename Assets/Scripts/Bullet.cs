@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-   [SerializeField]
-   private float speed;
-   [SerializeField]
-   private string enemyTag;
-   [SerializeField]
-   private GameObject hitParticles;
-   [SerializeField]
-   private string hitSound;
-   private Rigidbody rb;
-   private float damage;
-   public float Damage {set{damage = value;}}
-   private void Awake()
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private string enemyTag;
+    [SerializeField]
+    private GameObject hitParticles;
+    [SerializeField]
+    private string hitSound;
+    private Rigidbody rb;
+    private float damage;
+    public float Damage { set { damage = value; } }
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
-            if(other.TryGetComponent<Health>(out Health health))
+            if (other.TryGetComponent<Health>(out Health health))
             {
                 health.TakeDamage(damage);
                 PoolManager.Instance.GetObject(hitParticles, transform.position);
@@ -33,5 +33,6 @@ public class Bullet : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+
     }
 }

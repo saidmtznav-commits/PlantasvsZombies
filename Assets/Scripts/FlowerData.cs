@@ -1,5 +1,5 @@
 using UnityEngine;
- 
+
 [CreateAssetMenu(fileName = "FlowerData", menuName = "Scriptable Objects/FlowerData")]
 public class FlowerData : PlantData
 {
@@ -7,6 +7,5 @@ public class FlowerData : PlantData
     public float sunOffsetY;
     public float sunInterval;
     public int sunAmount;
-    public GameObject sunParticlesPrefab;
+    public GameObject sunParticlePrefab;
 }
- 

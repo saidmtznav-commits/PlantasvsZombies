@@ -2,13 +2,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
- 
+
 public class PlantCard : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
-    private int price;
-    [SerializeField]
     private TextMeshProUGUI priceText;
+    private int price => plantPrefab.GetComponent<Plant>().Price;
     [SerializeField]
     private GameObject plantPrefab;
     [SerializeField]
@@ -19,7 +18,7 @@ public class PlantCard : MonoBehaviour, IPointerDownHandler
     {
         priceText.text = price.ToString();
     }
-    public void  TryToBuyPlant()
+    public void TryToBuyPlant()
     {
         if (sunManager.HasEnoughSun(price))
         {
@@ -33,5 +32,4 @@ public class PlantCard : MonoBehaviour, IPointerDownHandler
         TryToBuyPlant();
     }
 }
- 
- 
+
