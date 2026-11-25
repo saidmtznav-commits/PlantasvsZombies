@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-
+ 
 public class PlantCard : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
@@ -14,11 +14,14 @@ public class PlantCard : MonoBehaviour, IPointerDownHandler
     private SunManager sunManager;
     [SerializeField]
     private UnityEvent<Transform> onPlantBought;
+    [SerializeField]
+    private PlantCardType plantCardType;
+    public PlantCardType PlantCardType => plantCardType;
     private void Awake()
     {
         priceText.text = price.ToString();
     }
-    public void TryToBuyPlant()
+    public void  TryToBuyPlant()
     {
         if (sunManager.HasEnoughSun(price))
         {
@@ -32,4 +35,12 @@ public class PlantCard : MonoBehaviour, IPointerDownHandler
         TryToBuyPlant();
     }
 }
-
+public enum PlantCardType
+{
+    Peashooter,
+    Flower,
+    Wallnut,
+    PlasmaPeashooter,
+}
+ 
+ 
